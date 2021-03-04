@@ -19,9 +19,9 @@ class DraughtsUtils {
   }
 
   /**
-   * Convert a draughts.js move to a uci move
+   * Convert a draughts.js move to a hub move
    */
-  uci(move) {
+  hub(move) {
     return move.from + move.to + (move.flags === "p" ? move.piece : "");
   }
 
@@ -90,7 +90,7 @@ class DraughtsUtils {
   }
 
   pickRandomMove(moves) {
-    return this.uci(moves[Math.floor(Math.random() * moves.length)]);
+    return this.hub(moves[Math.floor(Math.random() * moves.length)]);
   }
 
   filterForcing(legalMoves) {

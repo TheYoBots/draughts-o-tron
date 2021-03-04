@@ -34,11 +34,11 @@ To implement your draughts bot you only need to create one class that implements
 
 ```js
   getNextMove(moves) {
-      return uciMove;
+      return hubMove;
   }
 ```
 
-Where moves is a list of moves so far in uci format e.g. `["e2e4", "b8c6", "f2f4"]`
+Where moves is a list of moves so far in hub format e.g. `["e2e4", "b8c6", "f2f4"]`
 
 See [`RandomPlayer`](src/bots/RandomPlayer.js) for minimal implementation using [draughts.js](https://github.com/shubhendusaurabh/draughts.js)
 

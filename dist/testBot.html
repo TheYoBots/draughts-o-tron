@@ -54,8 +54,8 @@
         }
 
         var move = legalMoves[Math.floor(Math.random() * legalMoves.length)];
-        var uciMove = move.from + move.to + (move.flags === "p" ? move.piece : "");
-        return uciMove;
+        var hubMove = move.from + move.to + (move.flags === "p" ? move.piece : "");
+        return hubMove;
       }
 
       getReply(chat) {

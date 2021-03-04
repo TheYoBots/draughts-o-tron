@@ -30,7 +30,7 @@ class SwarmKingPlayer {
       });
 
       // choose move that maximises metric
-      return draughts.uci(legalMoves.reduce(this.randomMax));
+      return draughts.hub(legalMoves.reduce(this.randomMax));
     }
   }
 
@@ -38,8 +38,8 @@ class SwarmKingPlayer {
     return (a.metric + Math.random() > b.metric + Math.random()) ? a : b;
   }
 
-  removeReverseMoves(previousUciMoves, legalMoves) {
-    const filtered = legalMoves.filter(move => !previousUciMoves.includes(move.to + move.from));
+  removeReverseMoves(previousHubMoves, legalMoves) {
+    const filtered = legalMoves.filter(move => !previousHubMoves.includes(move.to + move.from));
     return filtered.length === 0 ? legalMoves : filtered;
   }
 

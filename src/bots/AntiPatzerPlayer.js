@@ -29,7 +29,7 @@ class AntiPatzerPlayer {
       });
 
       // choose move that maximises metric
-      return draughts.uci(legalMoves.reduce(this.randomMax));
+      return draughts.hub(legalMoves.reduce(this.randomMax));
     }
   }
   

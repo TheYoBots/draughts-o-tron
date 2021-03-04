@@ -15,9 +15,9 @@ tap.beforeEach(function(t) {
   t();
 });
 
-tap.test("uci", function(t) {
-  t.equal(draughts.uci({ from: "e2", to: "e4" }), "e2e4", "pawn to e4");
-  t.equal(draughts.uci({ from: "a7", to: "a8", flags: "p", piece: "q" }), "a7a8q", "promote to queen on a8");
+tap.test("hub", function(t) {
+  t.equal(draughts.hub({ from: "e2", to: "e4" }), "e2e4", "pawn to e4");
+  t.equal(draughts.hub({ from: "a7", to: "a8", flags: "p", piece: "q" }), "a7a8q", "promote to queen on a8");
   t.end();
 });
 
