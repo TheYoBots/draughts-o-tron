@@ -1,6 +1,6 @@
-# draughts-o-tron
+# **Do note that the README.md file (especially) and this repo is currently Under Construction**
 
-**Do note that the README.md file (especially) and this repo is currently Under Construction**
+# draughts-o-tron
 
 [![Build Status](https://travis-ci.com/TheYoBots/draughts-o-tron.svg?branch=master)](https://travis-ci.com/TheYoBots/draughts-o-tron)
 [![Dependency Status](https://david-dm.org/TheYoBots/draughts-o-tron.svg)](https://david-dm.org/TheYoBots/draughts-o-tron) 
