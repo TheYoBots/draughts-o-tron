@@ -16,11 +16,11 @@
       font-size: 11px;
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.js"></script>
+  <script src="/js/draughts.js"></script>
   <script src="library.js"></script>
   <script></script>
   <script>
-    /*global library, Chess*/
+    /*global library, Draughts*/
 
     window.console = {
       log: function(str) {
@@ -30,14 +30,14 @@
       }
     };
 
-    const chess = new Chess();
+    const draughts = new Draughts();
 
     class SimplePlayer {
       getNextMove(moves) {
-        chess.reset();
-        moves.forEach(move => chess.move(move, { sloppy: true }));
+        draughts.reset();
+        moves.forEach(move => draughts.move(move, { sloppy: true }));
 
-        var legalMoves = chess.moves({ verbose: true });
+        var legalMoves = draughts.moves({ verbose: true });
         var mates = legalMoves.filter(move => /\#/.test(move.san));
         var checks = legalMoves.filter(move => /\+/.test(move.san));
 
@@ -59,7 +59,7 @@
       }
 
       getReply(chat) {
-        return "hi";
+        return "Hello";
       }
     }
 

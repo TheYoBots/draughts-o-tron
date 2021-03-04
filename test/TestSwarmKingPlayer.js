@@ -1,9 +1,9 @@
 const test = require("tape");
 const SwarmKingPlayer = require("../src/bots/SwarmKingPlayer");
-const ChessUtils = require("../src/utils/ChessUtils");
+const DraughtsUtils = require("../src/utils/DraughtsUtils");
 
 const player = new SwarmKingPlayer();
-const chess = new ChessUtils();
+const draughts = new DraughtsUtils();
 
 "use strict";
 
@@ -22,21 +22,21 @@ test("getNextMove", function(t) {
 });
 
 test("distanceMetric", function(t) {
-  chess.reset();
-  const colour = chess.turn();
-  const opponentsKingSquare = chess.squareOfOpponentsKing();
-  t.equals(player.distanceMetric(chess, opponentsKingSquare, colour), 120, "distance to king metric is 120");
-  chess.applyMoves(["e2e4"]);
-  t.equals(player.distanceMetric(chess, opponentsKingSquare, colour), 122, "distance to king metric is 122");
-  chess.applyMoves(["a7a6"]);
-  t.equals(player.distanceMetric(chess, opponentsKingSquare, colour), 122, "distance to king invariant to opponents move");
+  draughts.reset();
+  const colour = draughts.turn();
+  const opponentsKingSquare = draughts.squareOfOpponentsKing();
+  t.equals(player.distanceMetric(draughts, opponentsKingSquare, colour), 120, "distance to king metric is 120");
+  draughts.applyMoves(["e2e4"]);
+  t.equals(player.distanceMetric(draughts, opponentsKingSquare, colour), 122, "distance to king metric is 122");
+  draughts.applyMoves(["a7a6"]);
+  t.equals(player.distanceMetric(draughts, opponentsKingSquare, colour), 122, "distance to king invariant to opponents move");
   t.end();
 });
 
 test("removeReverseMoves", function(t) {
-  chess.reset();
-  chess.applyMoves(["g1f3", "a7a6"]);
-  const legalMoves = chess.legalMoves();
+  draughts.reset();
+  draughts.applyMoves(["g1f3", "a7a6"]);
+  const legalMoves = draughts.legalMoves();
   const noReverse = player.removeReverseMoves(["g1f3", "a7a6"], legalMoves);
   t.equals(noReverse.length, legalMoves.length - 1, "reverse move removed");
   t.end();
