@@ -9,7 +9,7 @@
 class Game {
 
   /**
-   * Initialise with interface to lichess.
+   * Initialise with interface to lidraughts.
    */
   constructor(api, name, player) {
     this.api = api;
