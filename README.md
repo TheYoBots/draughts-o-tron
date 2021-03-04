@@ -3,7 +3,6 @@
 **Do note that the README.md file (especially) and this repo is currently Under Construction**
 
 [![Build Status](https://travis-ci.com/TheYoBots/draughts-o-tron.svg?branch=master)](https://travis-ci.com/TheYoBots/draughts-o-tron)
-[![Coverage Status](https://coveralls.io/repos/github/TheYoBots/draughts-o-tron/badge.svg?branch=master)](https://coveralls.io/github/TheYoBots/draughts-o-tron?branch=master) 
 [![Dependency Status](https://david-dm.org/TheYoBots/draughts-o-tron.svg)](https://david-dm.org/TheYoBots/draughts-o-tron) 
 [![devDependency Status](https://david-dm.org/TheYoBots/draughts-o-tron/dev-status.svg)](https://david-dm.org/TheYoBots/draughts-o-tron#info=devDependencies) 
 [![CodeFactor](https://www.codefactor.io/repository/github/TheYoBots/draughts-o-tron/badge)](https://www.codefactor.io/repository/github/TheYoBots/draughts-o-tron) 
