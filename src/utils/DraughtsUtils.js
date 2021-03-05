@@ -1,27 +1,27 @@
-const Chess = require("chess.js").Chess;
+const Draughts = require("draughts.js").Draughts;
 
 
 /**
- * Wraps chess.js with useful extras.
+ * Wraps draughts.js with useful extras.
  */
-class ChessUtils {
+class DraughtsUtils {
 
-  constructor(fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1") {
-    this.chess = new Chess(fen);
+  constructor(fen = "W:W31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50:B1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20:H0:F1") {
+    this.draughts = new draughts(fen);
   }
 
   reset() {
-    this.chess.reset();
+    this.draughts.reset();
   }
 
   applyMoves(moves) {
-    moves.forEach(move => this.chess.move(move, { sloppy: true }));
+    moves.forEach(move => this.draughts.move(move, { sloppy: true }));
   }
 
   /**
-   * Convert a chess.js move to a uci move
+   * Convert a draughts.js move to a hub move
    */
-  uci(move) {
+  hub(move) {
     return move.from + move.to + (move.flags === "p" ? move.piece : "");
   }
 
@@ -29,42 +29,42 @@ class ChessUtils {
    * Legal moves from current position.
    */
   legalMoves() {
-    return this.chess.moves({ verbose: true });
+    return this.draughts.moves({ verbose: true });
   }
 
   fen() {
-    return this.chess.fen();
+    return this.draughts.fen();
   }
 
   move(move) {
-    this.chess.move(move);
+    this.draughts.move(move);
   }
 
   undo() {
-    this.chess.undo();
+    this.draughts.undo();
   }
 
   turn() {
-    return this.chess.turn();
+    return this.draughts.turn();
   }
 
   squaresOf(colour) {
-    return this.chess.SQUARES.filter(square => {
-      const r = this.chess.get(square);
+    return this.draughts.SQUARES.filter(square => {
+      const r = this.draughts.get(square);
       return r && r.color === colour;
     });
   }
 
   squareOfKing() {
-    return this.squaresOfPiece(this.chess.turn(), "k");
+    return this.squaresOfPiece(this.draughts.turn(), "k");
   }
 
   squareOfOpponentsKing() {
-    return this.squaresOfPiece(this.otherPlayer(this.chess.turn()), "k");
+    return this.squaresOfPiece(this.otherPlayer(this.draughts.turn()), "k");
   }
 
   squaresOfPiece(colour, pieceType) {
-    return this.squaresOf(colour).find(square => this.chess.get(square).type.toLowerCase() === pieceType);
+    return this.squaresOf(colour).find(square => this.draughts.get(square).type.toLowerCase() === pieceType);
   }
 
   coordinates(square) {
@@ -90,7 +90,7 @@ class ChessUtils {
   }
 
   pickRandomMove(moves) {
-    return this.uci(moves[Math.floor(Math.random() * moves.length)]);
+    return this.hub(moves[Math.floor(Math.random() * moves.length)]);
   }
 
   filterForcing(legalMoves) {
@@ -99,11 +99,11 @@ class ChessUtils {
   }
 
   inCheckmate() {
-    return this.chess.in_checkmate();
+    return this.draughts.in_checkmate();
   }
 
   inStalemate() {
-    return this.chess.in_stalemate();
+    return this.draughts.in_stalemate();
   }
 
   materialEval() {
@@ -112,8 +112,8 @@ class ChessUtils {
 
   material(colour) {
     const valueOf = { p: 1, n: 3, b: 3, r: 6, q: 9, k: 0 };
-    return this.squaresOf(colour).map(square => valueOf[this.chess.get(square).type]).reduce((a, b) => a + b);
+    return this.squaresOf(colour).map(square => valueOf[this.draughts.get(square).type]).reduce((a, b) => a + b);
   }
 }
 
-module.exports = ChessUtils;
+module.exports = DraughtsUtils;

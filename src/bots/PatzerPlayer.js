@@ -1,4 +1,4 @@
-const ChessUtils = require("../utils/ChessUtils");
+const DrsughtsUtils = require("../utils/DraughtsUtils");
 
 
 /**
@@ -7,27 +7,27 @@ const ChessUtils = require("../utils/ChessUtils");
 class PatzerPlayer {
 
   getNextMove(moves) {
-    const chess = new ChessUtils();
-    chess.applyMoves(moves);
-    const legalMoves = chess.legalMoves();
-    const forcing = chess.filterForcing(legalMoves);
+    const draughts = new DraughtsUtils();
+    draughts.applyMoves(moves);
+    const legalMoves = draughts.legalMoves();
+    const forcing = draughts.filterForcing(legalMoves);
     const captures = legalMoves.filter(move => /x/.test(move.san));
 
     if (forcing.length) {
-      return chess.pickRandomMove(forcing);
+      return draughts.pickRandomMove(forcing);
     }
 
     if (captures.length) {
-      return chess.pickRandomMove(captures);
+      return draughts.pickRandomMove(captures);
     }
 
     if (legalMoves.length) {
-      return chess.pickRandomMove(legalMoves);
+      return draughts.pickRandomMove(legalMoves);
     }
   }
 
   getReply(chat) {
-    return "hi";
+    return "Hello";
   }
 
 }
