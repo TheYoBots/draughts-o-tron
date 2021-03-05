@@ -1,4 +1,4 @@
-const LichessApi = require("./LichessApi");
+const LidraughtsApi = require("./LidraughtsApi");
 
 const RobotUser = require("./RobotUser");
 const PatzerPlayer = require("./bots/PatzerPlayer");
@@ -6,11 +6,11 @@ const AntiPatzerPlayer = require("./bots/AntiPatzerPlayer");
 
 
 /**
- * Start a RobotUser (lichess account defined by API_TOKEN) that listens for challenges
+ * Start a RobotUser (lidrsughts account defined by API_TOKEN) that listens for challenges
  * and spawns games for unrated challenges. A player object must be supplied that can
  * produce the next move to play given the previous moves.
  * 
- * Token can be created on BOT accounts at https://lichess.org/account/oauth/token/create
+ * Token can be created on BOT accounts at https://lidraughts.org/account/oauth/token/create
  * Put the token in the shell environment with
  * 
  * export API_TOKEN=xxxxxxxxxxxxxx
@@ -22,9 +22,9 @@ const AntiPatzerPlayer = require("./bots/AntiPatzerPlayer");
 
 async function startBot(token, player) {
   if (token) {
-    const robot = new RobotUser(new LichessApi(token), player);
+    const robot = new RobotUser(new LidraughtsApi(token), player);
     const username = (await robot.start()).data.username;
-    return `<a href="https://lichess.org/@/${username}">${username}</a> on lichess.</h1><br/>`;
+    return `<a href="https://lidraughts.org/@/${username}">${username}</a> on lidraughts.</h1><br/>`;
   }
 }
 

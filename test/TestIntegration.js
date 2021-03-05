@@ -3,7 +3,7 @@ const sinon = require("sinon");
 
 const RobotUser = require("../src/RobotUser");
 const RandomPlayer = require("../src/bots/RandomPlayer");
-const LichessApi = require("../src/LichessApi");
+const LidraughtsApi = require("../src/LidraughtsApi");
 
 const gameId = "gid001";
 const challengeId = "cid001";
@@ -44,11 +44,11 @@ const chatSelf = { "type": "chatLine", "username": name, "text": "Hello", "room"
 
 /**
  * The idea of this test suite is to take the ensemble of classes through a 
- * login, accept challenge and game play sequence of actions against a mock lichess.
+ * login, accept challenge and game play sequence of actions against a mock lidraughts.
  */
 
 var robotUser;
-var lichessApi;
+var lidraughtsApi;
 var accountInfo;
 var declineChallenge;
 var acceptChallenge;
@@ -58,20 +58,20 @@ var makeMove;
 var chat;
 
 tap.beforeEach(function(t) {
-  lichessApi = new LichessApi(token);
-  accountInfo = sinon.stub(lichessApi, "accountInfo");
-  declineChallenge = sinon.stub(lichessApi, "declineChallenge");
-  acceptChallenge = sinon.stub(lichessApi, "acceptChallenge");
-  makeMove = sinon.stub(lichessApi, "makeMove");
-  chat = sinon.stub(lichessApi, "chat");
-  streamEvents = sinon.stub(lichessApi, "streamEvents");
-  streamGame = sinon.stub(lichessApi, "streamGame");
+  lidraughtsApi = new LidraughtsApi(token);
+  accountInfo = sinon.stub(lidraughtsApi, "accountInfo");
+  declineChallenge = sinon.stub(lidraughtsApi, "declineChallenge");
+  acceptChallenge = sinon.stub(lidraughtsApi, "acceptChallenge");
+  makeMove = sinon.stub(lidraughtsApi, "makeMove");
+  chat = sinon.stub(lidraughtsApi, "chat");
+  streamEvents = sinon.stub(lidraughtsApi, "streamEvents");
+  streamGame = sinon.stub(lidraughtsApi, "streamGame");
 
   accountInfo.returns({ data: { "id": "bot-o-tron", "username": "bot-o-tron" } });
   declineChallenge.returns({ data: { "ok": true } });
   acceptChallenge.returns({ data: { "ok": true } });
 
-  robotUser = new RobotUser(lichessApi, new RandomPlayer());
+  robotUser = new RobotUser(lidraughtsApi, new RandomPlayer());
 
   t();
 });

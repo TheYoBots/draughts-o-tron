@@ -1,16 +1,16 @@
 const axios = require("axios");
 const oboe = require("oboe");
 /**
- * Programatic interface to the web API of lichess https://lichess.org/api#tag/Chess-Bot
+ * Programatic interface to the web API of lidraughts https://lidraughts.org/api#tag/Bot
  *  
  */
-class LichessApi {
+class LidraughtsApi {
 
   /**
-   * Initialise with access token from https://lichess.org/account/oauth/token/create.
+   * Initialise with access token from https://lidraughts.org/account/oauth/token/create.
    */
   constructor(token) {
-    this.baseURL = "https://lichess.org/";
+    this.baseURL = "https://lidraughts.org/";
     this.headers = { "Authorization": `Bearer ${token}` };
     this.axiosConfig = {
       baseURL: this.baseURL,
@@ -101,4 +101,4 @@ class LichessApi {
   }
 }
 
-module.exports = LichessApi;
+module.exports = LidraughtsApi;
