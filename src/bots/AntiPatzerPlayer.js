@@ -1,4 +1,4 @@
-const ChessUtils = require("../utils/ChessUtils");
+const DraughtsUtils = require("../utils/DraughtsUtils");
 
 
 /**
@@ -9,15 +9,15 @@ const ChessUtils = require("../utils/ChessUtils");
 class AntiPatzerPlayer {
 
   getNextMove(moves) {
-    const chess = new ChessUtils();
-    chess.applyMoves(moves);
-    var legalMoves = chess.legalMoves();
+    const draughts = new DraughtsUtils();
+    draughts.applyMoves(moves);
+    var legalMoves = draughts.legalMoves();
 
     if (legalMoves.length) {
 
       legalMoves.forEach(m => {
-        chess.move(m);
-        const opponentsMoves = chess.legalMoves();
+        draughts.move(m);
+        const opponentsMoves = draughts.legalMoves();
         const opponentsMates = opponentsMoves.filter(move => /#/.test(move.san));
         const opponentsChecks = opponentsMoves.filter(move => /\+/.test(move.san));
         const opponentsCaptures = opponentsMoves.filter(move => /x/.test(move.san));
@@ -25,11 +25,11 @@ class AntiPatzerPlayer {
         m.metric += -opponentsCaptures.length * 10;
         m.metric += -opponentsChecks.length * 100;
         m.metric += -opponentsMates.length * 1000;
-        chess.undo();
+        draughts.undo();
       });
 
       // choose move that maximises metric
-      return chess.uci(legalMoves.reduce(this.randomMax));
+      return draughts.hub(legalMoves.reduce(this.randomMax));
     }
   }
   
@@ -38,7 +38,7 @@ class AntiPatzerPlayer {
   }
 
   getReply(chat) {
-    return "AntiPatzerPlayer";
+    return "Hello";
   }
 
 }

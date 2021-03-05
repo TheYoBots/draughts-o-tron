@@ -2,7 +2,7 @@ const tap = require("tap");
 const moxios = require("moxios");
 const nock = require("nock");
 const ndjson = require("ndjson");
-const LichessApi = require("../src/LichessApi");
+const LidraughtsApi = require("../src/LidraughtsApi");
 
 const gameId = "gid001";
 const challengeId = "cid001";
@@ -12,7 +12,7 @@ const okResponse = { status: 200, response: { "ok": true } };
 const eventResponse = { id: "1", type: "event" };
 const gameEventResponse = { id: "2", type: "move" };
 
-const api = new LichessApi(secret);
+const api = new LidraughtsApi(secret);
 
 "use strict";
 
@@ -38,7 +38,7 @@ tap.afterEach(function(t) {
 
 tap.test("streamEvents", function(t) {
   const serialize = ndjson.serialize();
-  nock("https://lichess.org")
+  nock("https://lidraughts.org")
     .get("/api/stream/event")
     .reply((uri, requestBody) => serialize);
   serialize.write(eventResponse);
@@ -55,7 +55,7 @@ tap.test("streamEventsEnd", function(t) {
 
 tap.test("streamGame", function(t) {
   const serialize = ndjson.serialize();
-  nock("https://lichess.org")
+  nock("https://lidraughts.org")
     .get(`/api/bot/game/stream/${gameId}`)
     .reply((uri, requestBody) => serialize);
   serialize.write(gameEventResponse);

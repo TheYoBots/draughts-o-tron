@@ -1,4 +1,4 @@
-const ChessUtils = require("../utils/ChessUtils");
+const DraughtsUtils = require("../utils/DraughtsUtils");
 
 
 /**
@@ -7,16 +7,16 @@ const ChessUtils = require("../utils/ChessUtils");
 class RandomPlayer {
 
   getNextMove(moves) {
-    const chess = new ChessUtils();
-    chess.applyMoves(moves);
-    const legalMoves = chess.legalMoves();
+    const draughts = new DraughtsUtils();
+    draughts.applyMoves(moves);
+    const legalMoves = draughts.legalMoves();
     if (legalMoves.length) {
-      return chess.pickRandomMove(legalMoves);
+      return draughts.pickRandomMove(legalMoves);
     }
   }
 
   getReply(chat) {
-    return "hi";
+    return "Hello";
   }
 
 }
