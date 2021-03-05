@@ -2,9 +2,6 @@
 
 # draughts-o-tron
 
-[![Build Status](https://travis-ci.com/TheYoBots/draughts-o-tron.svg?branch=master)](https://travis-ci.com/TheYoBots/draughts-o-tron)
-[![Dependency Status](https://david-dm.org/TheYoBots/draughts-o-tron.svg)](https://david-dm.org/TheYoBots/draughts-o-tron) 
-[![devDependency Status](https://david-dm.org/TheYoBots/draughts-o-tron/dev-status.svg)](https://david-dm.org/TheYoBots/draughts-o-tron#info=devDependencies) 
 [![CodeFactor](https://www.codefactor.io/repository/github/TheYoBots/draughts-o-tron/badge)](https://www.codefactor.io/repository/github/TheYoBots/draughts-o-tron) 
 [![Open in Gitpod](https://img.shields.io/badge/Gitpod-Open%20in%20Gitpod-%230092CF.svg)](https://gitpod.io/#https://github.com/TheYoBots/draughts-o-tron)
 
