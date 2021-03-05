@@ -1,4 +1,4 @@
-const LichessApi = require("./LichessApi");
+const LidraughtsApi = require("./LidraughtsApi");
 const Game = require("./Game");
 
 /**
@@ -8,7 +8,7 @@ const Game = require("./Game");
 class RobotUser {
 
   /**
-   * Initialise with access token to lichess and a player algorithm.
+   * Initialise with access token to lidraughts and a player algorithm.
    */
   constructor(api, player) {
     this.api = api;

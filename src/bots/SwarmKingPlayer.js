@@ -1,4 +1,4 @@
-const ChessUtils = require("../utils/ChessUtils");
+const DraughtsUtils = require("../utils/DraughtsUtils");
 
 
 /**
@@ -7,30 +7,30 @@ const ChessUtils = require("../utils/ChessUtils");
 class SwarmKingPlayer {
 
   getNextMove(moves) {
-    const chess = new ChessUtils();
-    chess.applyMoves(moves);
-    var legalMoves = chess.legalMoves();
-    const forcing = chess.filterForcing(legalMoves);
+    const draughts = new DraughtsUtils();
+    draughts.applyMoves(moves);
+    var legalMoves = draughts.legalMoves();
+    const forcing = draughts.filterForcing(legalMoves);
 
     if (forcing.length) {
-      return chess.pickRandomMove(forcing);
+      return draughts.pickRandomMove(forcing);
     }
 
     legalMoves = this.removeReverseMoves(moves, legalMoves);
 
     if (legalMoves.length) {
-      const colour = chess.turn();
+      const colour = draughts.turn();
 
       // get distance to king in all successor states
       legalMoves.forEach(m => {
-        chess.move(m);
-        const squareOfKing = chess.squareOfOpponentsKing();
-        m.metric = this.distanceMetric(chess, squareOfKing, colour);
-        chess.undo();
+        draughts.move(m);
+        const squareOfKing = draughts.squareOfOpponentsKing();
+        m.metric = this.distanceMetric(draughts, squareOfKing, colour);
+        draughts.undo();
       });
 
       // choose move that maximises metric
-      return chess.uci(legalMoves.reduce(this.randomMax));
+      return draughts.hub(legalMoves.reduce(this.randomMax));
     }
   }
 
@@ -38,22 +38,22 @@ class SwarmKingPlayer {
     return (a.metric + Math.random() > b.metric + Math.random()) ? a : b;
   }
 
-  removeReverseMoves(previousUciMoves, legalMoves) {
-    const filtered = legalMoves.filter(move => !previousUciMoves.includes(move.to + move.from));
+  removeReverseMoves(previousHubMoves, legalMoves) {
+    const filtered = legalMoves.filter(move => !previousHubMoves.includes(move.to + move.from));
     return filtered.length === 0 ? legalMoves : filtered;
   }
 
   /**
    * Sum of (16 - manhattan distance to king) for each piece of given colour.
    */
-  distanceMetric(chess, targetSquare, colour) {
-    const target = chess.coordinates(targetSquare);
-    const distances = chess.squaresOf(colour).map(square => 16 - chess.manhattanDistance(target, chess.coordinates(square)));
+  distanceMetric(draughts, targetSquare, colour) {
+    const target = draughts.coordinates(targetSquare);
+    const distances = draughts.squaresOf(colour).map(square => 16 - draughts.manhattanDistance(target, draughts.coordinates(square)));
     return distances.reduce((a, b) => a + b, 0);
   }
 
   getReply(chat) {
-    return "swarm the king!";
+    return "Hello";
   }
 
 }

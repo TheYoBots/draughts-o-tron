@@ -1,4 +1,4 @@
-const ChessUtils = require("../utils/ChessUtils");
+const DraughtsUtils = require("../utils/DraughtsUtils");
 
 /**
  * Play off two players and capture result after maximum number of moves.
@@ -23,13 +23,13 @@ class PlayOff {
 
   makeMove(player) {
     this.moves.push(player.getNextMove(this.moves));
-    const chess = new ChessUtils();
-    chess.applyMoves(this.moves);
-    if (chess.inCheckmate()) {
+    const draughts = new DraughtsUtils();
+    draughts.applyMoves(this.moves);
+    if (draughts.inCheckmate()) {
       this.setScore(player, 1);
       return false;
     }
-    else if (chess.inStalemate()) {
+    else if (draughts.inStalemate()) {
       this.setScore(player, 0.5);
       return false;
     }
@@ -45,9 +45,9 @@ class PlayOff {
   }
 
   adjudicate() {
-    const chess = new ChessUtils();
-    chess.applyMoves(this.moves);
-    const materialEval = chess.materialEval();
+    const draughts = new DraughtsUtils();
+    draughts.applyMoves(this.moves);
+    const materialEval = draughts.materialEval();
     if (Math.abs(materialEval) < 2) {
       this.result = 0.5;
     }
