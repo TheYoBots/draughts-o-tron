@@ -1,4 +1,4 @@
-const DraughtsUtils = require("../utils/DraughtsUtils");
+var DraughtsUtils = require("../utils/DraughtsUtils");
 
 
 /**
@@ -7,9 +7,9 @@ const DraughtsUtils = require("../utils/DraughtsUtils");
 class RandomPlayer {
 
   getNextMove(moves) {
-    const draughts = new DraughtsUtils();
+    var draughts = new DraughtsUtils();
     draughts.applyMoves(moves);
-    const legalMoves = draughts.legalMoves();
+    var legalMoves = draughts.legalMoves();
     if (legalMoves.length) {
       return draughts.pickRandomMove(legalMoves);
     }
