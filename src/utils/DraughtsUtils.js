@@ -22,7 +22,7 @@ class DraughtsUtils {
    * Convert a draughts.js move to a hub move
    */
   hub(move) {
-    return move.from + move.to + (move.flags === "p" ? move.piece : "");
+    return move.from + move.to + (move.flags === "b" ? move.piece : "");
   }
 
   /**
@@ -53,14 +53,6 @@ class DraughtsUtils {
       var r = this.draughts.get(square);
       return r && r.color === colour;
     });
-  }
-
-  squareOfKing() {
-    return this.squaresOfPiece(this.draughts.turn(), "k");
-  }
-
-  squareOfOpponentsKing() {
-    return this.squaresOfPiece(this.otherPlayer(this.draughts.turn()), "k");
   }
 
   squaresOfPiece(colour, pieceType) {
@@ -102,8 +94,8 @@ class DraughtsUtils {
     return this.draughts.in_checkmate();
   }
 
-  inStalemate() {
-    return this.draughts.in_stalemate();
+  inDraw() {
+    return this.draughts.in_draw();
   }
 
   materialEval() {
@@ -111,7 +103,7 @@ class DraughtsUtils {
   }
 
   material(colour) {
-    var valueOf = { p: 1, n: 3, b: 3, r: 6, q: 9, k: 0 };
+    var valueOf = { w: 1, b: 1, W: 9, B: 9 };
     return this.squaresOf(colour).map(square => valueOf[this.draughts.get(square).type]).reduce((a, b) => a + b);
   }
 }
