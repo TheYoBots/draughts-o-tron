@@ -1,4 +1,4 @@
-const Draughts = require("draughts.js").Draughts;
+var Draughts = require("draughts.js").Draughts;
 
 
 /**
@@ -50,7 +50,7 @@ class DraughtsUtils {
 
   squaresOf(colour) {
     return this.draughts.SQUARES.filter(square => {
-      const r = this.draughts.get(square);
+      var r = this.draughts.get(square);
       return r && r.color === colour;
     });
   }
@@ -80,8 +80,8 @@ class DraughtsUtils {
   }
 
   euclideanDistance(a, b) {
-    const dx = (a.x - b.x);
-    const dy = (a.y - b.y);
+    var dx = (a.x - b.x);
+    var dy = (a.y - b.y);
     return Math.sqrt(dx * dx + dy * dy);
   }
 
@@ -94,7 +94,7 @@ class DraughtsUtils {
   }
 
   filterForcing(legalMoves) {
-    const mates = legalMoves.filter(move => /#/.test(move.san));
+    var mates = legalMoves.filter(move => /#/.test(move.san));
     return mates.length ? mates : legalMoves.filter(move => /\+/.test(move.san));
   }
 
@@ -111,7 +111,7 @@ class DraughtsUtils {
   }
 
   material(colour) {
-    const valueOf = { p: 1, n: 3, b: 3, r: 6, q: 9, k: 0 };
+    var valueOf = { p: 1, n: 3, b: 3, r: 6, q: 9, k: 0 };
     return this.squaresOf(colour).map(square => valueOf[this.draughts.get(square).type]).reduce((a, b) => a + b);
   }
 }
