@@ -1,0 +1,34 @@
+{
+  "name": "lichess-node-bot",
+  "version": "1.0.0",
+  "description": "Lichess bot event and game code flow example",
+  "main": "src/Main.js",
+  "scripts": {
+    "test": "nyc tap test/*",
+    "start": "node src/Main.js",
+    "tournament": "node src/tournament/Main.js",
+    "build": "webpack -p",
+    "deps": "npx yarn-check --skip-unused"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "coveralls": "^3.0.11",
+    "moxios": "^0.4.0",
+    "nock": "^10.0.6",
+    "nyc": "^15.0.1",
+    "sinon": "^9.0.2",
+    "tap": "^14.10.7",
+    "tape": "^4.13.2",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "chess.js": "^0.10.3",
+    "express": "^4.17.1",
+    "ndjson": "^1.5.0",
+    "oboe": "^2.1.5"
+  }
+}
