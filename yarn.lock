@@ -1637,6 +1637,11 @@ dotignore@~0.1.2:
   dependencies:
     minimatch "^3.0.4"
 
+draughts@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/draughts/-/draughts-0.0.1.tgz#f1196614c3a3d36433e0cc4e8393c19793f2790d"
+  integrity sha1-8RlmFMOj02Qz4MxOg5PBl5PyeQ0=
+
 duplexify@^3.4.2, duplexify@^3.6.0:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/duplexify/-/duplexify-3.7.1.tgz#2a4df5317f6ccfd91f86d6fd25d8d8a103b88309"
