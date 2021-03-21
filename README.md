@@ -1,8 +1,8 @@
 # **Do note that the README.md file (especially) and this repo is currently Under Construction**
 
-# draughts-o-tron
+# draught-o-tron
 
-[![CodeFactor](https://www.codefactor.io/repository/github/TheYoBots/draughts-o-tron/badge)](https://www.codefactor.io/repository/github/TheYoBots/draughts-o-tron) 
+[![CodeFactor](https://www.codefactor.io/repository/github/TheYoBots/draught-o-tron/badge)](https://www.codefactor.io/repository/github/TheYoBots/draught-o-tron) 
 [![Open in Gitpod](https://img.shields.io/badge/Gitpod-Open%20in%20Gitpod-%230092CF.svg)](https://gitpod.io/#https://github.com/TheYoBots/draughts-o-tron)
 
 Try out [Lidraughts'](https://lidraughts.org) bot interface using [Lidraughts' Bot API](https://lidraughts.org/api#tag/Bot).
