@@ -1,4 +1,4 @@
-var DraughtsUtils = require("../utils/DraughtsUtils");
+var Draughts = new Draughts();
 
 
 /**
@@ -7,7 +7,7 @@ var DraughtsUtils = require("../utils/DraughtsUtils");
 class RandomPlayer {
 
   getNextMove(moves) {
-    var draughts = new DraughtsUtils();
+    var draughts = new Draughts();
     draughts.applyMoves(moves);
     var legalMoves = draughts.legalMoves();
     if (legalMoves.length) {

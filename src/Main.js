@@ -5,7 +5,7 @@ const RandomPlayer = require("./bots/RandomPlayer");
 
 
 /**
- * Start a RobotUser (lidasughts account defined by API_TOKEN) that listens for challenges
+ * Start a RobotUser (lidraughts account defined by API_TOKEN) that listens for challenges
  * and spawns games for unrated challenges. A player object must be supplied that can
  * produce the next move to play given the previous moves.
  * 
