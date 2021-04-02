@@ -1,14 +1,8 @@
 const Tournament = require("./Tournament");
-const PatzerPlayer = require("../bots/PatzerPlayer");
-const SwarmKingPlayer = require("../bots/SwarmKingPlayer");
 const RandomPlayer = require("../bots/RandomPlayer");
-const AntiPatzerPlayer = require("../bots/AntiPatzerPlayer");
 
 const players = [
-  new PatzerPlayer(),
-  new SwarmKingPlayer(),
   new RandomPlayer(),
-  new AntiPatzerPlayer()
 ];
 
 /**
