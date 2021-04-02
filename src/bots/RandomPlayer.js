@@ -1,6 +1,3 @@
-var Draughts = new Draughts();
-
-
 /**
  * Pick a random legal move.
  */
