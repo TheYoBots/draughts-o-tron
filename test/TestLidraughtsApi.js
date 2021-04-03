@@ -7,7 +7,7 @@ const LidraughtsApi = require("../src/LidraughtsApi");
 const gameId = "gid001";
 const challengeId = "cid001";
 const secret = "secret api token";
-const accountResponse = { status: 200, response: { "id": "bot-o-tron", "username": "bot-o-tron" } };
+const accountResponse = { status: 200, response: { "id": "YoBot_v2", "username": "YoBot_v2" } };
 const okResponse = { status: 200, response: { "ok": true } };
 const eventResponse = { id: "1", type: "event" };
 const gameEventResponse = { id: "2", type: "move" };
@@ -94,12 +94,12 @@ tap.test("upgrade", async function(t) {
 tap.test("accountInfo", async function(t) {
   assertRequest(t, "get", new RegExp("api/account"), accountResponse);
   const response = await api.accountInfo();
-  t.equal(response.data.id, "bot-o-tron", "user id returned");
+  t.equal(response.data.id, "YoBot_v2", "user id returned");
   t.end();
 });
 
 tap.test("makeMove", async function(t) {
-  const move = "e2e4";
+  const move = "34-29";
   assertRequest(t, "post", new RegExp(`api/bot/game/${gameId}/move/${move}`), okResponse);
   const response = await api.makeMove(gameId, move);
   t.equal(response.data.ok, true, "response correct");
@@ -122,7 +122,7 @@ tap.test("resignGame", async function(t) {
 
 tap.test("chat", async function(t) {
   assertRequest(t, "post", new RegExp(`api/bot/game/${gameId}/chat`), okResponse);
-  const response = await api.chat(gameId, "lobby", "hi");
+  const response = await api.chat(gameId, "lobby", "Hello");
   t.equal(response.data.ok, true, "response correct");
   t.end();
 });

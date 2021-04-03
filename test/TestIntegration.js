@@ -8,13 +8,13 @@ const LidraughtsApi = require("../src/LidraughtsApi");
 const gameId = "gid001";
 const challengeId = "cid001";
 const token = "api token";
-const id = "bot-o-tron";
-const name = "bot-o-tron";
+const id = "YoBot_v2";
+const name = "YoBot_v2";
 const ratedChallenge = {
   "type": "challenge",
   "challenge": {
     "id": challengeId,
-    "challenger": { "id": "lovlas" },
+    "challenger": { "id": "YohaanSethNathan" },
     "destUser": { id, name },
     "variant": { "key": "standard", "name": "Standard", "short": "Std" },
     "rated": true,
@@ -32,7 +32,7 @@ const gameFullWhite = {
   "variant": { "key": "standard", "name": "Standard", "short": "Std" },
   "clock": { "initial": 1200000, "increment": 10000 },
   "white": { id, name },
-  "black": { "id": "leela", "name": "Leela" },
+  "black": { "id": "YoBot_v2", "name": "YoBot_v2" },
   "initialFen": "startpos",
   "state": { "type": "gameState", "moves": "" }
 };
@@ -67,7 +67,7 @@ tap.beforeEach(function(t) {
   streamEvents = sinon.stub(lidraughtsApi, "streamEvents");
   streamGame = sinon.stub(lidraughtsApi, "streamGame");
 
-  accountInfo.returns({ data: { "id": "bot-o-tron", "username": "bot-o-tron" } });
+  accountInfo.returns({ data: { "id": "YoBot_v2", "username": "YoBot_v2" } });
   declineChallenge.returns({ data: { "ok": true } });
   acceptChallenge.returns({ data: { "ok": true } });
 
@@ -78,7 +78,7 @@ tap.beforeEach(function(t) {
 
 async function startAndGetEventHandler(t) {
   const response = await robotUser.start();
-  t.equal(response.data.id, "bot-o-tron", "user id returned");
+  t.equal(response.data.id, "YoBot_v2", "user id returned");
   t.ok(accountInfo.calledOnce, "accountInfo called once");
   t.ok(streamEvents.calledOnce, "streamEvents called once");
   return streamEvents.getCall(0).args[0];
@@ -119,7 +119,7 @@ tap.test("game start as black", async function(t) {
   const gameEventHandler = await startGameAndGetGameHandler(t);
   gameEventHandler(gameFullBlack);
   t.ok(makeMove.notCalled, "makeMove notCalled");
-  gameEventHandler({ "type": "gameState", "moves": "e2e4" });
+  gameEventHandler({ "type": "gameState", "moves": "34-29" });
   t.ok(makeMove.calledOnce, "makeMove called once");
   t.end();
 });
