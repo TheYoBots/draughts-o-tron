@@ -6,7 +6,7 @@ const player = new RandomPlayer();
 "use strict";
 
 test("getReply", function(t) {
-  t.equal(player.getReply({}), "hi", "says hi");
+  t.equal(player.getReply({}), "Hello", "says Hello");
   t.end();
 });
 
