@@ -1,4 +1,4 @@
-const Draughts = require('draughts');
+var Draughts = require('draughts');
 
 /**
  * Pick a random legal move.
