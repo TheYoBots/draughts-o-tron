@@ -10,7 +10,12 @@
   "keywords": [],
   "author": "theyobots",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.16.3",
+    "lodash": "^4.17.19",
+    "oboe": "^2.1.4"
+  },
   "directories": {
     "test": "test"
   },
