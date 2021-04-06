@@ -32,7 +32,7 @@ const token           = process.env.API_TOKEN;
     async function begin() {
         var links = "<h1>Challenge:</h1><br/>";
 
-        links += await startBot(token, new Stockfish());
+        links += await startBot(token, new Scan());
 
         // heroku wakeup server (not necessary otherwise)
 
