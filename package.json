@@ -1,34 +1,25 @@
 {
-  "name": "lichess-node-bot",
+  "name": "lidraughts-bot-draught-o-tron",
   "version": "1.0.0",
-  "description": "Lichess bot event and game code flow example",
+  "description": "Lidraughts bot event and game code flow example",
   "main": "src/Main.js",
   "scripts": {
-    "test": "nyc tap test/*",
-    "start": "node src/Main.js",
-    "tournament": "node src/tournament/Main.js",
-    "build": "webpack -p",
-    "deps": "npx yarn-check --skip-unused"
+    "test": "node index.js",
+    "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "coveralls": "^3.0.11",
-    "moxios": "^0.4.0",
-    "nock": "^10.0.6",
-    "nyc": "^15.0.1",
-    "sinon": "^9.0.2",
-    "tap": "^14.10.7",
-    "tape": "^4.13.2",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+  "author": "theyobots",
+  "license": "MIT",
+  "dependencies": {},
+  "directories": {
+    "test": "test"
   },
-  "dependencies": {
-    "axios": "^0.19.2",
-    "draughts": "^0.0.1",
-    "express": "^4.17.1",
-    "ndjson": "^1.5.0",
-    "oboe": "^2.1.5"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheYoBots/draught-o-tron.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheYoBots/draught-o-tron/issues"
+  },
+  "homepage": "https://github.com/TheYoBots/draught-o-tron#readme"
 }
