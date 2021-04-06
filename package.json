@@ -2,7 +2,7 @@
   "name": "lidraughts-bot-draught-o-tron",
   "version": "1.0.0",
   "description": "Lidraughts bot event and game code flow example",
-  "main": "src/Main.js",
+  "main": "index.js",
   "scripts": {
     "test": "node index.js",
     "start": "node index.js"
@@ -15,9 +15,6 @@
     "express": "^4.16.3",
     "lodash": "^4.17.19",
     "oboe": "^2.1.4"
-  },
-  "directories": {
-    "test": "test"
   },
   "repository": {
     "type": "git",
