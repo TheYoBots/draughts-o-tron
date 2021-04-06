@@ -2,7 +2,7 @@ const express         = require('express');
 const PORT            = process.env.PORT || 5000;
 
 const LidraughtsApi      = require('./api/lidraughts-api');
-const StockFishPlayer = require('./bots/stockfish');
+const ScanEngine = require('./bots/scan-engine');
 const DraughtOTron   = require('./bots/draught-o-tron');
 
 const token           = process.env.API_TOKEN;
