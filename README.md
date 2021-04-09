@@ -44,5 +44,5 @@ You do not need to own a server to host a BOT, this code also runs in a browser.
 
 ## Acknowledgements
 
-- https://github.com/tailuge/bot-o-tron : Official Lichess in JavaScript.
+- https://github.com/tailuge/bot-o-tron : Official Lichess Bot client written in JavaScript.
 - https://github.com/shubhendusaurabh/draughts.js : JavaScript draughts/checkers library.
