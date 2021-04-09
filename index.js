@@ -2,7 +2,7 @@ const express         = require('express');
 const PORT            = process.env.PORT || 5000;
 
 const LidraughtsApi      = require('./api/lidraughts-api');
-const ScanEngine = require('./bots/scan-engine');
+const ScanEngineBot = require('./bots/scan-engine');
 const DraughtOTron   = require('./bots/draught-o-tron');
 
 const token           = process.env.API_TOKEN;
@@ -32,7 +32,7 @@ const token           = process.env.API_TOKEN;
     async function begin() {
         var links = "<h1>Challenge:</h1><br/>";
 
-        links += await startBot(token, new Scan());
+        links += await startBot(token, new ScanEngineBot());
 
         // heroku wakeup server (not necessary otherwise)
 
