@@ -23,12 +23,6 @@ $ export API_TOKEN=xxxxxxxxxx
 $ setx API_TOKEN xxxxxxxxxx
 ```
 
-### Test
-
-```bash
-$ yarn test
-```
-
 ### Run
 
 ```bash
