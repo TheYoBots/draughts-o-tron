@@ -1,4 +1,4 @@
-const scan  = require("scan");
+const scan  = require("scan3.1.js");
 const _          = require("lodash");
 let bestRegex    = /bestmove\s+(\S+)/;
 let moveRegex    = /makemove\s+(\S+)/;
