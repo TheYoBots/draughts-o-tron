@@ -3,7 +3,7 @@ const ScanEngine = require("../engines/scan-engine");
 /**
  * Get the moves from scan engine
  */
-class ScanEngine {
+class ScanEngineBot {
     getEngine() {
         return new ScanEngine({
             initialized: () => {
@@ -17,4 +17,4 @@ class ScanEngine {
     }
 }
 
-module.exports = ScanEngine;
+module.exports = ScanEngineBot;
