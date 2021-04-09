@@ -11,7 +11,6 @@
 - Get an [API Access Token](https://lidraughts.org/account/oauth/token) from [Lidraughts.org](https://lidraughts.org).
 
 ```bash
-$ nvm use v10.15.3
 $ yarn install
 
 # Linux
@@ -39,11 +38,9 @@ To implement your draughts bot you only need to create one class that implements
 
 Where moves is a list of moves so far in hub format e.g. `["34-29", "20-24", "29x20"]`
 
-See [`RandomPlayer`](src/bots/RandomPlayer.js) for minimal implementation using [draughts.js](https://github.com/shubhendusaurabh/draughts.js)
-
 ### Hostless
 
-You do not need to own a server to host a BOT, this code also runs in a browser. You could either use gitpod or your own terminal.
+You do not need to own a server to host a BOT, this code also runs in a browser. You could either use gitpod or your own terminal and type in the [above mentioned commands](https://github.com/TheYoBots/draught-o-tron#setup).
 
 ## Acknowledgements
 
