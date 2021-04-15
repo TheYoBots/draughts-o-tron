@@ -21,7 +21,7 @@ class ScanEngine {
         this.api;
         this.gameId;
 
-        // Initialize engine to HUB standard
+        // Initialize engine to HUB standard protocol
         this.send('hub', () => {
             console.log('Scan Engine initialized');
         });
