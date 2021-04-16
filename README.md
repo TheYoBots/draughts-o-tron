@@ -11,8 +11,11 @@
 - Get an [API Access Token](https://lidraughts.org/account/oauth/token) from [Lidraughts.org](https://lidraughts.org).
 
 ```bash
-$ yarn install
+# Install all npm dependencies
 
+$ npm install
+
+# Get lidraughts API Access Token
 # Linux
 
 $ export API_TOKEN=xxxxxxxxxx
@@ -36,7 +39,7 @@ To implement your draughts bot you only need to create one class that implements
   }
 ```
 
-Where moves is a list of moves so far in hub format e.g. `["34-29", "20-24", "29x20"]`
+Where moves is a list of moves so far are in the hub protocol format e.g. `["34-29", "20-24", "29x20"]`
 
 ### Hostless
 
