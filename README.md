@@ -28,7 +28,7 @@ $ setx API_TOKEN xxxxxxxxxx
 ### Run
 
 ```bash
-$ yarn start
+$ npm start
 ```
 
 To implement your draughts bot you only need to create one class that implements the method:
